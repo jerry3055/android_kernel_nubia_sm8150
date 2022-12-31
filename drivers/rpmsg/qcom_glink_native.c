@@ -1764,7 +1764,11 @@ static void qcom_glink_rx_close(struct qcom_glink *glink, unsigned int rcid)
 	kthread_cancel_work_sync(&channel->intent_work);
 
 	if (channel->rpdev) {
+<<<<<<< HEAD
 		strlcpy(chinfo.name, channel->name, sizeof(chinfo.name));
+=======
+		strscpy_pad(chinfo.name, channel->name, sizeof(chinfo.name));
+>>>>>>> d37ce01b39f3b0f208f2683e165f19c4e2e6e7c7
 		chinfo.src = RPMSG_ADDR_ANY;
 		chinfo.dst = RPMSG_ADDR_ANY;
 
